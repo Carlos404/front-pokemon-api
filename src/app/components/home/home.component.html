@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="grid-cards">
+        <div class="row cards">
+            <div *ngFor="let data of dataPokemon | paginate: { itemsPerPage: 15, currentPage: p }" class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{data.images.small}}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{data.name}} #{{data.id}}</h5>
+                    <a href="#" class="btn btn-primary">Ver detalhes</a>
+                </div>
+            </div>
+        </div>
+        <pagination-controls (pageChange)="p = $event" responsive="true" previousLabel="Anterior" nextLabel="Próximo"></pagination-controls>
+    </div>
+</div>
