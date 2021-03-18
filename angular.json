@@ -28,6 +28,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.sass"
             ],
             "scripts": []
@@ -123,6 +124,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "front-pokemon-api"
+    }
+  },
+  "defaultProject": "front-pokemon-api",
+  "cli": {
+    "analytics": false
+  }
 }
