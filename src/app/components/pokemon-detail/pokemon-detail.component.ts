@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { faArrowAltCircleDown, faArrowAltCircleUp, faAtlas, faBong, faBurn, faIdBadge } from '@fortawesome/free-solid-svg-icons';
+import { Component, OnInit } from '@angular/core';
 import { PokemonsService } from 'src/app/services/pokemons.service';
+import { faArrowAltCircleDown, faArrowAltCircleUp, faAtlas, faBong, faBurn, faIdBadge } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-pokemon-detail',

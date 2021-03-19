@@ -7,7 +7,6 @@ import { HomeComponent } from './components/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { PokemonDetailComponent } from './components/pokemon-detail/pokemon-detail.component';
-import { BaseComponent } from './components/base/base.component';
 import { OrderModule } from 'ngx-order-pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -17,7 +16,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     AppComponent,
     HomeComponent,
     PokemonDetailComponent,
-    BaseComponent,
   ],
   imports: [
     BrowserModule,

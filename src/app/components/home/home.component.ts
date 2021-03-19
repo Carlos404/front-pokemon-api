@@ -1,6 +1,6 @@
+import { FormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { PokemonsService } from 'src/app/services/pokemons.service';;
-import { FormControl } from '@angular/forms';
 import { faAddressCard, faIdBadge, faSignature } from '@fortawesome/free-solid-svg-icons';
 
 @Component({

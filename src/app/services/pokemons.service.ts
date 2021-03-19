@@ -1,15 +1,13 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { catchError } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { catchError } from 'rxjs/operators';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
-
-// const url = 'https://api.pokemontcg.io/v2/cards';
-const url = 'https://soucadu.me/cards.json';
+const url = 'https://api.pokemontcg.io/v2/cards';
 
 @Injectable({
   providedIn: 'root'
