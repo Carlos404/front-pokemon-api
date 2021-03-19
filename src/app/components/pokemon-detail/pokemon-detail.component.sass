@@ -1,5 +1,7 @@
 .card-detail
   display: -webkit-box !important
+  @media (max-width: 500px)
+    display: block !important
 
 .attributes
   display: contents
@@ -11,3 +13,10 @@
 .row 
   margin-left: -300px
   justify-content: center
+  @media (max-width: 500px)
+    margin-left: -15px
+
+.card-btn
+  width: 100%
+  text-align: center
+  margin-top: 15px

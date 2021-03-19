@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PokemonsService } from 'src/app/services/pokemons.service';;
 import { FormControl } from '@angular/forms';
+import { faAddressCard, faIdBadge, faSignature } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-home',
@@ -9,6 +10,9 @@ import { FormControl } from '@angular/forms';
 })
 export class HomeComponent implements OnInit {
 
+  faAddressCard = faAddressCard;
+  faSignature = faSignature;
+  faIdBadge = faIdBadge;
   public search = false;
   public dataPokemon = [];
   public p;
@@ -25,7 +29,7 @@ export class HomeComponent implements OnInit {
   constructor(private pokemonService: PokemonsService) { }
 
   queryPokemon = new FormControl();
-  public results$
+  public results$;
 
   ngOnInit() {
     if(!this.search) {
@@ -35,9 +39,13 @@ export class HomeComponent implements OnInit {
 
   onSearch() {
     let value = this.queryPokemon.value;
+    this.results$ = undefined;
     if (value && (value = value.trim()) !== '') {
       this.search = true;
       this.results$ = this.pokemonService.getPokemonByName(value)
+    }
+    else {
+      this.search = false;
     }
   };
 

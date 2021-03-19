@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { catchError, elementAt, map, mapTo, tap } from 'rxjs/operators';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { catchError } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
-import { FormControl } from '@angular/forms';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
 
-const url = 'https://api.pokemontcg.io/v2/cards';
+// const url = 'https://api.pokemontcg.io/v2/cards';
+const url = 'https://soucadu.me/cards.json';
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +26,8 @@ export class PokemonsService {
   }
 
   getPokemonById(idDetaild) {
-    let idPokemon = []
+    let idPokemon = [];
+    this.dataPokemon = [];
     this.http.get(url).subscribe(data => {
       this.dataPokemon.push(data)
       this.dataPokemon.filter(item => {
@@ -37,12 +38,12 @@ export class PokemonsService {
         });
       })
     })
-
     return idPokemon
   }
 
   getPokemonByName(nameDetaild) {
-    let namePokemon = []
+    let namePokemon = [];
+    this.dataPokemon = [];
     this.http.get(url).subscribe(data => {
       this.dataPokemon.push(data)
       this.dataPokemon.filter(item => {
@@ -53,9 +54,7 @@ export class PokemonsService {
         });
       })
     })
-
     return namePokemon;
-
   }
 
   private handleError<T>(operation = 'operation', result?: T) {

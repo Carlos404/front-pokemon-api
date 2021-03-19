@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { faArrowAltCircleDown, faArrowAltCircleUp, faAtlas, faBong, faBurn, faIdBadge } from '@fortawesome/free-solid-svg-icons';
 import { PokemonsService } from 'src/app/services/pokemons.service';
 
 @Component({
@@ -8,7 +9,14 @@ import { PokemonsService } from 'src/app/services/pokemons.service';
   styleUrls: ['./pokemon-detail.component.sass']
 })
 export class PokemonDetailComponent implements OnInit {
-  
+
+  faArrowDown = faArrowAltCircleDown;
+  faArrowUp = faArrowAltCircleUp;
+  faBurn = faBurn;
+  faBong = faBong;
+  faAtlas = faAtlas;
+  faIdBadge = faIdBadge;
+
   public id: string;
   public pokemon;
 
@@ -18,8 +26,12 @@ export class PokemonDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.pokemon= [];
+    this.init()
+  }
+
+  init() {
     this.id = this.route.snapshot.paramMap.get('id');
     this.pokemon = this.pokemonService.getPokemonById(this.id);
-    console.log(this.pokemon)
   }
 }

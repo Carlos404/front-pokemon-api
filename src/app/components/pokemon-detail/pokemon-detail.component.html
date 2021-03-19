@@ -1,7 +1,5 @@
 <nav class="navbar nav">
   <img src="../../../assets/img/logo.png" width="50" height="50" alt="">
-  <div class="form-inline my-2 my-lg-0 input-search">
-  </div>
 </nav>
 <div class="container">
   <div class="grid-cards">
@@ -9,19 +7,19 @@
       <div class="card card-detail" style="width: 18rem;">
         <div>
           <img class="card-img-top" src="{{data.images.large}}" alt="Card image cap">
-          <h5 class="card-title">{{data.name}} #{{data.id}}</h5>
-          <p>{{data.types}}</p>
+          <h5 class="card-title card-btn">{{data.name}} - <fa-icon [icon]="faIdBadge"></fa-icon> {{data.id}}</h5>
+          <p class="card-btn">{{data.types}}</p>
 
         </div>
         <div class="card-body card">
           <div class="attributes" *ngFor="let atk of data.attacks">
             <p><b>{{atk.name}}</b></p>
-            <p>Mana: {{atk.convertedEnergyCost}}</p>
-            <p>Dano: {{atk.damage}}</p>
-            <p>Descrição: {{atk.text}}</p>
+            <p title="Mana" *ngIf="atk.convertedEnergyCost != ''"><fa-icon [icon]="faBong"></fa-icon> {{atk.convertedEnergyCost}}</p>
+            <p title="Dano" *ngIf="atk.damage != ''"><fa-icon [icon]="faBurn"></fa-icon> {{atk.damage}}</p>
+            <p title="Descrição"><fa-icon [icon]="faAtlas"></fa-icon> {{atk.text}}</p>
           </div>
-          <p *ngFor="let resist of data.resistances">Resistencia: {{resist.type}}</p>
-          <p *ngFor="let weak of data.weaknesses">Fraqueza: {{weak.type}}</p>
+          <p *ngFor="let resist of data.resistances" title="Resistencia"><fa-icon [icon]="faArrowUp"></fa-icon> {{resist.type}}</p>
+          <p *ngFor="let weak of data.weaknesses" title="Fraqueza"><fa-icon [icon]="faArrowDown"></fa-icon> {{weak.type}}</p>
           <a href="#" class="btn btn-primary">Voltar</a>
         </div>
       </div>

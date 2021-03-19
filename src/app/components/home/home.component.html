@@ -6,7 +6,7 @@
     </div>
   </nav>
 
-<div *ngIf="!search; else templateName">
+<div *ngIf="!search; else searching">
   <div class="container">
     <div class="grid-cards">
       <div class="row cards">
@@ -16,29 +16,28 @@
           class="card" style="width: 18rem;">
           <img class="card-img-top" src="{{data.images.small}}" alt="Card image cap">
           <div class="card-body">
-            <h5 class="card-title">{{data.name}} #{{data.id}}</h5>
+            <h5 class="card-title">{{data.name}} - <fa-icon [icon]="faIdBadge"></fa-icon> {{data.id}}</h5>
             <p>{{data.types }}</p>
             <a routerLink="/details/{{data.id}}" class="btn btn-primary">Ver detalhes</a>
           </div>
 
         </div>
       </div>
-      <pagination-controls (pageChange)="p = $event" responsive="true" previousLabel="Anterior" nextLabel="Próximo">
+      <pagination-controls class="pagination-controls" (pageChange)="p = $event" responsive="true" previousLabel="Anterior" nextLabel="Próximo">
       </pagination-controls>
     </div>
   </div>
 </div>
-
-<ng-template #templateName>
+<ng-template #searching>
   <div class="container">
     <div class="grid-cards">
       <div class="row cards">
         <div *ngFor="let result of results$">
           <img class="card-img-top" src="{{result.images.small}}" alt="Card image cap">
           <div class="card-body">
-            <h5 class="card-title">{{result.name}} #{{result.id}}</h5>
-            <p>{{result.types }}</p>
-            <a routerLink="/details/{{result.id}}" class="btn btn-primary">Ver detalhes</a>
+            <h5 class="card-title">{{result.name}} - <fa-icon [icon]="faIdBadge"></fa-icon> {{result.id}}</h5>
+           <p>{{result.types }}</p>
+            <a routerLink="/details/{{result.id}}" class="btn btn-lg btn-primary">Ver detalhes</a>
           </div>
         </div>
       </div>
