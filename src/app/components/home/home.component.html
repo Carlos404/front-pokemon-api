@@ -1,14 +1,47 @@
-<div class="container">
-    <div class="grid-cards">
-        <div class="row cards">
-            <div *ngFor="let data of dataPokemon | paginate: { itemsPerPage: 15, currentPage: p }" class="card" style="width: 18rem;">
-                <img class="card-img-top" src="{{data.images.small}}" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">{{data.name}} #{{data.id}}</h5>
-                    <a href="#" class="btn btn-primary">Ver detalhes</a>
-                </div>
-            </div>
-        </div>
-        <pagination-controls (pageChange)="p = $event" responsive="true" previousLabel="Anterior" nextLabel="Próximo"></pagination-controls>
+<nav class="navbar nav">
+    <img src="../../../assets/img/logo.png" width="50" height="50" alt="">
+    <div class="form-inline my-2 my-lg-0 input-search">
+      <input type="text" id="myPokemon" class="form-control" [formControl]="queryPokemon" placeholder="Pesquisar" />
+      <button class="btn btn-info" (click)="onSearch()">Pesquisar</button>
     </div>
+  </nav>
+
+<div *ngIf="!search; else templateName">
+  <div class="container">
+    <div class="grid-cards">
+      <div class="row cards">
+
+        <div
+          *ngFor="let data of dataPokemon  | orderBy: order : reverse | paginate: { itemsPerPage: 15, currentPage: p }; let i = index;"
+          class="card" style="width: 18rem;">
+          <img class="card-img-top" src="{{data.images.small}}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{data.name}} #{{data.id}}</h5>
+            <p>{{data.types }}</p>
+            <a routerLink="/details/{{data.id}}" class="btn btn-primary">Ver detalhes</a>
+          </div>
+
+        </div>
+      </div>
+      <pagination-controls (pageChange)="p = $event" responsive="true" previousLabel="Anterior" nextLabel="Próximo">
+      </pagination-controls>
+    </div>
+  </div>
 </div>
+
+<ng-template #templateName>
+  <div class="container">
+    <div class="grid-cards">
+      <div class="row cards">
+        <div *ngFor="let result of results$">
+          <img class="card-img-top" src="{{result.images.small}}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{result.name}} #{{result.id}}</h5>
+            <p>{{result.types }}</p>
+            <a routerLink="/details/{{result.id}}" class="btn btn-primary">Ver detalhes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

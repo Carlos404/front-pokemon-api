@@ -6,17 +6,27 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { PokemonDetailComponent } from './components/pokemon-detail/pokemon-detail.component';
+import { BaseComponent } from './components/base/base.component';
+import { OrderModule } from 'ngx-order-pipe';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    PokemonDetailComponent,
+    BaseComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    OrderModule,
+    ReactiveFormsModule,
+    FormsModule
+   
   ],
   providers: [],
   bootstrap: [AppComponent]
