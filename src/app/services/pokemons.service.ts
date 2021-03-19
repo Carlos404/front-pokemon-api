@@ -9,9 +9,7 @@ const httpOptions = {
 };
 
 
-// const url = 'https://api.pokemontcg.io/v2/cards';
-const url = 'https://soucadu.me/cards.json';
-
+const url = 'https://api.pokemontcg.io/v2/cards';
 
 @Injectable({
   providedIn: 'root'
